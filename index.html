@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ulaanbaatar Hotel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+<style>
+  /* ============================================================
+   ULAANBAATAR HOTEL — styles.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --gold:        #A58C63;
+  --gold-light:  #D8BD98;
+  --gold-mid:    #C59C66;
+  --gold-dark:   #8C6F48;
+  --gold-pale:   #EDE0D0;
+  --brown:       #64502E;
+  --cream:       #F2F1ED;
+  --white:       #ffffff;
+  --overlay:     rgba(100, 80, 46, 0.50);
+  --ease:        cubic-bezier(0, 0, 0, 1);
+  --dur:         0.4s;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: #333;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a   { text-decoration: none; color: inherit; }
+ul  { list-style: none; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ── Container ─────────────────────────────────────────────── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 100;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  color: var(--gold);
+  transition: background 0.45s var(--ease),
+              border-color 0.45s var(--ease),
+              box-shadow 0.45s var(--ease);
+}
+.header.scrolled {
+  background: var(--white);
+  border-bottom-color: var(--gold-light);
+  box-shadow: 0 2px 20px rgba(100,80,46,.08);
+}
+
+/* top row */
+.header__top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+/* ★ five stars above logo */
+.header__stars {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 1.4rem 0 5px;
+  font-size: .75rem;
+  color: white;
+  letter-spacing: 3px;
+}
+
+/* logo */
+.header__logo-wrap { text-align: center; }
+.header__logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: white;
+  padding-bottom: .9rem;
+}
+
+/* right actions */
+.header__actions {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: stretch;
+}
+.header__contact {
+  padding: .55rem 1.4rem;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-right: 1px solid var(--gold-light);
+  display: flex;
+  align-items: center;
+  color: white;
+  transition: color var(--dur);
+}
+.header__contact:hover { color: var(--gold-dark); }
+
+.header__reserve {
+  padding: .75rem 2rem;
+  background: var(--gold);
+  color: var(--white);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: background var(--dur);
+}
+
+.header__reserve:hover { background: var(--gold-dark); }
+
+/* nav row */
+.nav {
+  border-top: 1px solid rgba(216,189,152,.35);
+  padding: 0 2rem;
+  transition: border-color 0.45s var(--ease);
+}
+.header.scrolled .nav { border-top-color: var(--gold-pale); }
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .85rem 0;
+}
+.nav__item { 
+    position: relative;
+    
+}
+
+.nav__link {
+  font-size: .7rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  display: inline-block;
+  padding: .15rem 0;
+  color: white;
+  transition: color var(--dur);
+}
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 24px; height: 10px;
+  background: var(--gold-light);
+  border-radius: 6px 6px 0 0;
+  transition: transform var(--dur) var(--ease);
+
+}
+.nav__item:hover .nav__link::after { transform: translateX(-50%) scaleX(1); }
+
+.nav__lang {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: white;
+  background: none;
+  border: none;
+}
+.nav__lang i { font-size: 1.3rem; }
+
+.nav__lang::after{
+    color: var(--gold-dark);
+}
+
+/* ── Header scroll үед өнгө солих ─────────────────────────── */
+
+.header.scrolled .header__logo,
+.header.scrolled .header__stars,
+.header.scrolled .header__contact,
+.header.scrolled .nav__link,
+.header.scrolled .nav__lang,
+.header.scrolled .nav__list,
+.header.scrolled .header__stars {
+    color: var(--gold-dark);
+}
+
+
+/* nav underline */
+.header.scrolled .nav__link::after {
+  background: var(--gold-dark);
+}
+
+
+/* ============================================================
+   HERO  — panel slides up from bottom on scroll
+   ============================================================ */
+.hero {
+  position: relative;
+  height: 220vh;
+}
+
+.hero__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Layer 1 — building photo, always visible */
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  background: url('https://ubhotel.mn/_next/image?url=%2Fbackground%2Fbackground4.png&w=1920&q=100')
+              center top / cover no-repeat;
+  z-index: 0;
+}
+
+/* Layer 2 — the sliding panel (booking bar on top + topo+text below) */
+.hero__panel {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 75vh;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* Booking bar — white strip at TOP of panel */
+.booking-bar {
+  flex-shrink: 0;
+  background: var(--white);
+  margin-left: 50px;
+  margin-right: 50px;
+  border: 1px solid var(--gold-pale);
+}
+.booking-bar__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  border: 1px solid var(--gold-pale);
+}
+.booking-bar__field {
+  padding: 1.4rem 2.5rem;
+  border-right: 1px solid var(--gold-pale);
+}
+.booking-bar__label {
+  font-size: .66rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.booking-bar__value {
+  font-size: .9rem;
+  color: #444;
+}
+.booking-bar__submit {
+  padding: 1.4rem 2.5rem;
+  background: var(--gold);
+  color: var(--white);
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--dur);
+}
+.booking-bar__submit:hover { background: var(--gold-dark); }
+
+/* Topo + blur — fills the rest of panel below booking bar */
+.hero__topo {
+  flex: 1;
+  position: relative;  /* needed so hero__content positions inside */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'%3E%3Cdefs%3E%3Cstyle%3Eellipse%7Bfill:none;stroke:%23c59c66;stroke-width:0.9;opacity:0.4%7D%3C/style%3E%3C/defs%3E%3Cellipse cx='600' cy='700' rx='580' ry='160'/%3E%3Cellipse cx='600' cy='680' rx='540' ry='138'/%3E%3Cellipse cx='600' cy='658' rx='495' ry='116'/%3E%3Cellipse cx='600' cy='634' rx='448' ry='95'/%3E%3Cellipse cx='600' cy='608' rx='398' ry='76'/%3E%3Cellipse cx='600' cy='580' rx='345' ry='59'/%3E%3Cellipse cx='600' cy='550' rx='290' ry='44'/%3E%3Cellipse cx='600' cy='518' rx='232' ry='31'/%3E%3Cellipse cx='600' cy='485' rx='172' ry='20'/%3E%3Cellipse cx='600' cy='452' rx='112' ry='12'/%3E%3Cellipse cx='600' cy='422' rx='62' ry='6'/%3E%3Cellipse cx='150' cy='720' rx='250' ry='80'/%3E%3Cellipse cx='150' cy='700' rx='210' ry='62'/%3E%3Cellipse cx='150' cy='678' rx='170' ry='46'/%3E%3Cellipse cx='1050' cy='710' rx='230' ry='75'/%3E%3Cellipse cx='1050' cy='690' rx='188' ry='57'/%3E%3Cellipse cx='1050' cy='668' rx='146' ry='42'/%3E%3C/svg%3E"),
+    linear-gradient(to bottom, rgba(100,80,46,0.50) 0%, rgba(100,80,46,0.75) 100%);
+  background-size: cover, 100% 100%;
+  background-position: center bottom, center;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Text content — absolute inside .hero__topo */
+.hero__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  padding: 2rem;
+  z-index: 1;
+}
+
+.hero__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 1.4rem;
+}
+
+.hero__stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1.4rem;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  color: var(--gold-light);
+}
+
+.hero__desc {
+  font-size: .88rem;
+  font-weight: 300;
+  line-height: 1.95;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  opacity: .92;
+}
+
+.hero__meta {
+  display: flex;
+  justify-content: center;
+  font-size: .75rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.hero__meta a,
+.hero__meta span {
+  padding: 0 2rem;
+  border-right: 1px solid rgba(255,255,255,.35);
+  color: var(--white);
+  opacity: .88;
+  transition: opacity var(--dur);
+}
+.hero__meta *:last-child { border-right: none; }
+.hero__meta a:hover { opacity: 1; }
+
+/* ============================================================
+   SHARED SECTION
+   ============================================================ */
+.section {
+  padding: 9rem 0 6rem;
+  background: var(--cream);
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.section__divider {
+  border: none;
+  border-top: 1px solid var(--gold-mid);
+  margin: 1.5rem 0 3rem;
+}
+
+.btn-arrow {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-mid);
+  background: transparent;
+  color: var(--gold-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dur), color var(--dur);
+  flex-shrink: 0;
+}
+.btn-arrow i { font-size: 1.5rem; }
+.btn-arrow:hover { background: var(--gold-mid); color: var(--white); }
+
+/* ============================================================
+   CAROUSEL  (shared for both Rooms and Facilities)
+   ============================================================ */
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* Dots */
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: .6rem;
+  margin-top: 2.5rem;
+}
+.carousel__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-mid);
+  background: transparent;
+  padding: 0;
+  transition: background var(--dur), transform var(--dur);
+}
+.carousel__dot.active {
+  background: var(--gold-mid);
+  transform: scale(1.2);
+}
+
+/* ============================================================
+   ROOMS CAROUSEL
+   3 cards visible on desktop
+   ============================================================ */
+#rooms-track .room-card {
+  flex: 0 0 calc(100% / 3);
+  min-width: 0;
+  padding: 0 .625rem; /* half of 1.25rem gap */
+}
+
+.room-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 14 / 9;
+  cursor: pointer;
+}
+.room-card__img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s var(--ease);
+}
+.room-card:hover .room-card__img { transform: scale(1.08); }
+
+.room-card__info {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: .6rem 1.25rem;
+  background: var(--overlay);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--gold-light);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 88%;
+}
+.room-card__name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.room-card__specs {
+  display: flex;
+  gap: 1.5rem;
+  font-size: .76rem;
+}
+.room-card__specs li { position: relative; }
+.room-card__specs li + li::before {
+  content: '';
+  position: absolute;
+  left: -.75rem; top: 50%;
+  width: 4px; height: 4px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.room-card__cta {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 3.5rem;
+  background: rgba(100,80,46,.55);
+  border-top: 1px solid var(--gold-light);
+  text-align: center;
+  color: var(--white);
+  transform: translateY(100%);
+  transition: transform .5s var(--ease);
+}
+.room-card:hover .room-card__cta { transform: translateY(0); }
+.room-card__cta a {
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* ============================================================
+   FACILITIES CAROUSEL
+   1 card at a time, full width
+   ============================================================ */
+.facilities { background: var(--cream); padding: 0 0 10rem; }
+
+.carousel--facility { margin-top: 2rem; }
+
+#fac-track .facility-card {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.facility-card {
+  display: grid;
+  grid-template-columns: 1fr 40%;
+  min-height: 500px;
+  overflow: hidden;
+}
+.facility-card__image {
+  position: relative;
+  overflow: hidden;
+}
+.facility-card__image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s var(--ease);
+}
+.facility-card:hover .facility-card__image img { transform: scale(1.04); }
+
+.facility-card__body {
+  padding: 3.5rem 2.5rem;
+  background: var(--overlay);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid var(--gold-light);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.facility-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 1rem;
+}
+.facility-card__desc {
+  font-size: .88rem;
+  line-height: 1.85;
+  opacity: .9;
+}
+.facility-card__meta-label {
+  margin-top: 1.25rem;
+  font-size: .66rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+.facility-card__meta-value {
+  font-size: .88rem;
+  margin-top: .25rem;
+  opacity: .9;
+}
+.facility-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 1.25rem;
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 500;
+  transition: gap var(--dur);
+}
+.facility-card__link:hover { gap: 10px; }
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+.events {
+  position: relative;
+  background: var(--cream);
+  padding: 6rem 0 12rem;
+}
+.events__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: right;
+  padding-right: 4rem;
+  padding-bottom: 4rem;
+}
+.event-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+}
+.event-card__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.event-card__body {
+  position: relative;
+  z-index: 1;
+  margin: 0 9rem;
+  padding: 5rem 4rem;
+  background: var(--overlay);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--gold-light);
+  text-align: center;
+  color: var(--white);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.event-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.event-card__desc {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.9;
+  max-width: 680px;
+  opacity: .9;
+}
+.event-card__contact {
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin: 1.75rem 0 1.25rem;
+  opacity: .85;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: var(--gold);
+  color: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold-mid);
+  transition: background var(--dur);
+}
+.btn-primary:hover { background: var(--gold-dark); }
+
+/* ============================================================
+   LOCATION
+   ============================================================ */
+.location { padding: 8rem 0; background: var(--cream); }
+.location__header { text-align: center; padding-bottom: 3rem; }
+.location__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.location__address {
+  font-size: .9rem;
+  color: var(--gold-dark);
+  line-height: 1.8;
+}
+.map-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--gold-pale);
+  overflow: hidden;
+}
+.map-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  position: relative;
+  padding: 5rem 0 2rem;
+  overflow: hidden;
+  color: var(--white);
+}
+.footer__bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.footer__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  backdrop-filter: blur(12px);
+  z-index: 0;
+}
+.footer__inner { position: relative; z-index: 1; }
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+.footer__brand { display: flex; flex-direction: column; align-items: center; }
+.footer__brand-stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 8px;
+  font-size: .75rem;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.7);
+}
+.footer__logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.footer__heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: .9rem;
+}
+.footer__text {
+  font-size: .85rem;
+  line-height: 1.8;
+  opacity: .82;
+  text-align: center;
+}
+.footer__links { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.footer__link {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+  opacity: .85;
+  transition: opacity var(--dur);
+}
+.footer__link:hover { opacity: 1; }
+.footer__divider {
+  border: none;
+  border-top: 1px solid var(--gold-light);
+  margin: 0;
+}
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  padding-top: 1.25rem;
+}
+.footer__socials { display: flex; gap: .75rem; }
+.footer__social img {
+  width: 24px; height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: .85;
+  transition: opacity var(--dur);
+}
+.footer__social:hover img { opacity: 1; }
+.footer__copy {
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .6;
+  flex: 1;
+  text-align: center;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .nav { display: none; }
+  .header__actions { position: static; }
+
+  /* Rooms: 2 visible */
+  #rooms-track .room-card { flex: 0 0 50%; }
+
+  .facility-card { grid-template-columns: 1fr; min-height: auto; }
+  .facility-card__body { border-left: none; border-top: 1px solid var(--gold-light); }
+  .event-card__body { margin: 0 2rem; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  /* Rooms: 1 visible */
+  #rooms-track .room-card { flex: 0 0 100%; }
+
+  .booking-bar__grid { grid-template-columns: 1fr; }
+  .booking-bar__field { border-right: none; border-bottom: 1px solid var(--gold-pale); }
+  .btn-arrow { width: 36px; height: 36px; }
+  .btn-arrow i { font-size: 1rem; }
+  .section { padding: 5rem 0 4rem; }
+  .event-card__body { margin: 0; padding: 3rem 1.5rem; }
+  .footer__grid { grid-template-columns: 1fr; }
+  .footer__bottom { flex-direction: column; gap: 1rem; }
+  .hero__meta { flex-wrap: wrap; }
+  .hero__meta a, .hero__meta span { padding: .4rem 1rem; border-right: none; }
+}
+</style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       HEADER
+  ══════════════════════════════ -->
+  <header class="header" id="site-header">
+    <div class="container">
+
+      <!-- Logo row -->
+      <div class="header__top">
+        <div class="header__logo-wrap">
+          <!-- ★ Five stars above logo -->
+          <div class="header__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <a href="/"><h1 class="header__logo">Ulaanbaatar</h1></a>
+        </div>
+
+        <div class="header__actions">
+          <a class="header__contact" href="/contact">Contact Us</a>
+          <a class="header__reserve" href="http://booking.ubhotel.mn">Reserve</a>
+        </div>
+      </div>
+
+      <!-- Navigation row -->
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="/room-suits">Rooms &amp; Suites</a></li>
+          <li class="nav__item"><a class="nav__link" href="/dining">Dining</a></li>
+          <li class="nav__item"><a class="nav__link" href="/facilities">Facilities</a></li>
+          <li class="nav__item"><a class="nav__link" href="/offers">Offers</a></li>
+          <li class="nav__item"><a class="nav__link" href="/our-city">Our City</a></li>
+          <li class="nav__item"><a class="nav__link" href="/event">Event</a></li>
+          <li class="nav__item"><a class="nav__link" href="/gift">Gift</a></li>
+          <li class="nav__item">
+            <button class="nav__lang">MN <i class="ri-arrow-down-s-line"></i></button>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════
+       HERO  (tall scroll container)
+  ══════════════════════════════ -->
+  <section class="hero" id="hero-section">
+    <div class="hero__sticky">
+
+      <!-- Layer 1: building photo — always visible -->
+      <div class="hero__photo"></div>
+
+      <!-- Layer 2: overlay panel — slides up from bottom on scroll -->
+      <div class="hero__panel" id="hero-panel">
+
+        <!-- Booking bar — inside panel, at the top -->
+        <div class="booking-bar" id="booking-bar">
+          <div class="booking-bar__grid">
+            <div class="booking-bar__field">
+              <p class="booking-bar__label">Check In</p>
+              <p class="booking-bar__value">19 May 2026</p>
+            </div>
+            <div class="booking-bar__field">
+              <p class="booking-bar__label">Check Out</p>
+              <p class="booking-bar__value">20 May 2026</p>
+            </div>
+            <div class="booking-bar__field">
+              <p class="booking-bar__label">Guests</p>
+              <p class="booking-bar__value">1 Room · 1 Guest</p>
+            </div>
+            <button class="booking-bar__submit">Check Availability</button>
+          </div>
+        </div>
+
+        <!-- Topo texture + blur bg fills the rest of the panel -->
+        <div class="hero__topo"></div>
+
+        <!-- Text content — centered inside the topo area -->
+        <div class="hero__content">
+          <h1 class="hero__title">
+            We Are Pioneers<br>In Our Country
+          </h1>
+          <div class="hero__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="hero__desc">
+            The Ulaanbaatar Hotel has delighted luxury travelers since 1961, serving as a meeting place
+            for heads of state and inspiring some of the most famous stories of our city. Synonymous with
+            bold exploration, cultural discovery, and the worldliness that travel brings, every stay will
+            take your imagination to places you'd never expect.
+          </p>
+          <div class="hero__meta">
+            <span>113-206-20</span>
+            <a href="/contact">View Map</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@ubhotel.mn">info@ubhotel.mn</a>
+          </div>
+        </div>
+
+      </div><!-- /.hero__panel -->
+
+    </div><!-- /.hero__sticky -->
+  </section>
+
+
+  <!-- ══════════════════════════════
+       OUR ROOMS  — carousel
+  ══════════════════════════════ -->
+  <section class="section" id="rooms-section">
+    <div class="container">
+
+      <div class="section__header">
+        <button class="btn-arrow" id="rooms-prev" aria-label="Өмнөх"><i class="ri-arrow-left-line"></i></button>
+        <h2 class="section__title">Our Rooms</h2>
+        <button class="btn-arrow" id="rooms-next" aria-label="Дараах"><i class="ri-arrow-right-line"></i></button>
+      </div>
+      <hr class="section__divider">
+
+      <!-- Carousel viewport -->
+      <div class="carousel" id="rooms-carousel">
+        <div class="carousel__track" id="rooms-track">
+
+          <article class="room-card">
+            <img class="room-card__img" src="https://ubhotel.mn/_next/image?url=%2Froom%2Fcomfort-single%2F1.JPG&w=828&q=100" alt="Comfort Single">
+            <div class="room-card__info">
+              <h3 class="room-card__name">Comfort Single</h3>
+              <ul class="room-card__specs"><li>1–2 Guest</li><li>Twin Bed</li><li>15m²</li></ul>
+            </div>
+            <div class="room-card__cta"><a href="/room-suits/1">View Detail</a></div>
+          </article>
+
+          <article class="room-card">
+            <img class="room-card__img" src="https://ubhotel.mn/_next/image?url=%2Froom%2Fstandard-double%2F1.JPG&w=828&q=100" alt="Standard Double">
+            <div class="room-card__info">
+              <h3 class="room-card__name">Standard Double</h3>
+              <ul class="room-card__specs"><li>1–2 Guest</li><li>2 Queen Beds</li><li>18m²</li></ul>
+            </div>
+            <div class="room-card__cta"><a href="/room-suits/2">View Detail</a></div>
+          </article>
+
+          <article class="room-card">
+            <img class="room-card__img" src="https://ubhotel.mn/_next/image?url=%2Froom%2FST%2F1.jpg&w=828&q=100" alt="Superior Twin">
+            <div class="room-card__info">
+              <h3 class="room-card__name">Superior Twin</h3>
+              <ul class="room-card__specs"><li>1–2 Guest</li><li>Twin Bed</li><li>24m²</li></ul>
+            </div>
+            <div class="room-card__cta"><a href="/room-suits/3">View Detail</a></div>
+          </article>
+
+          <article class="room-card">
+            <img class="room-card__img" src="https://ubhotel.mn/_next/image?url=%2Froom%2FSK%2F3.jpg&w=828&q=100" alt="Superior King">
+            <div class="room-card__info">
+              <h3 class="room-card__name">Superior King</h3>
+              <ul class="room-card__specs"><li>1–2 Guest</li><li>King Bed</li><li>24m²</li></ul>
+            </div>
+            <div class="room-card__cta"><a href="/room-suits/4">View Detail</a></div>
+          </article>
+
+          <article class="room-card">
+            <img class="room-card__img" src="https://ubhotel.mn/_next/image?url=%2Froom%2FDT%2F1.jpg&w=828&q=100" alt="Deluxe Twin">
+            <div class="room-card__info">
+              <h3 class="room-card__name">Deluxe Twin</h3>
+              <ul class="room-card__specs"><li>1–2 Guest</li><li>Twin Bed</li><li>32m²</li></ul>
+            </div>
+            <div class="room-card__cta"><a href="/room-suits/5">View Detail</a></div>
+          </article>
+
+          <article class="room-card">
+            <img class="room-card__img" src="https://ubhotel.mn/_next/image?url=%2Froom%2FDK%2F1.jpg&w=828&q=100" alt="Deluxe King">
+            <div class="room-card__info">
+              <h3 class="room-card__name">Deluxe King</h3>
+              <ul class="room-card__specs"><li>1–2 Guest</li><li>King Bed</li><li>32m²</li></ul>
+            </div>
+            <div class="room-card__cta"><a href="/room-suits/6">View Detail</a></div>
+          </article>
+
+          <article class="room-card">
+            <img class="room-card__img" src="https://ubhotel.mn/_next/image?url=%2Froom%2FDS%2F1.jpg&w=828&q=100" alt="Deluxe Suite">
+            <div class="room-card__info">
+              <h3 class="room-card__name">Deluxe Suite</h3>
+              <ul class="room-card__specs"><li>1–3 Guest</li><li>Queen Bed</li><li>50m²</li></ul>
+            </div>
+            <div class="room-card__cta"><a href="/room-suits/7">View Detail</a></div>
+          </article>
+
+          <article class="room-card">
+            <img class="room-card__img" src="https://ubhotel.mn/_next/image?url=%2Froom%2FES%2F2.jpg&w=828&q=100" alt="Executive Suite">
+            <div class="room-card__info">
+              <h3 class="room-card__name">Executive Suite</h3>
+              <ul class="room-card__specs"><li>1–4 Guest</li><li>King Bed</li><li>75m²</li></ul>
+            </div>
+            <div class="room-card__cta"><a href="/room-suits/8">View Detail</a></div>
+          </article>
+
+        </div><!-- /.carousel__track -->
+      </div><!-- /.carousel -->
+
+      <!-- Dot indicators -->
+      <div class="carousel__dots" id="rooms-dots"></div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       FACILITIES  — carousel
+  ══════════════════════════════ -->
+  <section class="facilities" id="facilities-section">
+    <div class="container">
+
+      <div class="section__header">
+        <button class="btn-arrow" id="fac-prev" aria-label="Өмнөх"><i class="ri-arrow-left-line"></i></button>
+        <h2 class="section__title">Facilities</h2>
+        <button class="btn-arrow" id="fac-next" aria-label="Дараах"><i class="ri-arrow-right-line"></i></button>
+      </div>
+
+      <!-- Carousel viewport -->
+      <div class="carousel carousel--facility" id="fac-carousel">
+        <div class="carousel__track" id="fac-track">
+
+          <!-- Arig Anya -->
+          <article class="facility-card">
+            <div class="facility-card__image">
+              <img src="https://ubhotel.mn/_next/image?url=%2Ffacilities%2Farig2.png&w=1080&q=100" alt="Arig Anya">
+            </div>
+            <div class="facility-card__body">
+              <h3 class="facility-card__title">Arig Anya</h3>
+              <p class="facility-card__desc">
+                Step into our Japanese noodle restaurant, where you can savor the authentic flavors of Japan.
+                Enjoy a diverse selection of ramen, udon, and soba dishes, all crafted with fresh ingredients and traditional recipes.
+              </p>
+              <p class="facility-card__meta-label">Hours of Operation</p>
+              <p class="facility-card__meta-value">Monday – Friday: 10:00 AM – 1:00 PM, 2:00 PM – 6:00 PM</p>
+              <a class="facility-card__link" href="/facilities/7">See More <i class="ri-arrow-right-s-line"></i></a>
+            </div>
+          </article>
+
+          <!-- Fitness Center -->
+          <article class="facility-card">
+            <div class="facility-card__image">
+              <img src="https://ubhotel.mn/_next/image?url=%2Ffacilities%2Fgym%2F2.jpg&w=1080&q=100" alt="Fitness Center">
+            </div>
+            <div class="facility-card__body">
+              <h3 class="facility-card__title">Fitness Center</h3>
+              <p class="facility-card__desc">
+                The Ulaanbaatar Hotel's fitness center offers the latest in cardiovascular and strength training equipment,
+                and a panoramic view of the city from the top floor.
+              </p>
+              <p class="facility-card__meta-label">Tel</p>
+              <p class="facility-card__meta-value">011-32-0620 · 9988-6868</p>
+              <p class="facility-card__meta-label">Hours of Operation</p>
+              <p class="facility-card__meta-value">7:00 AM – 10:00 PM (Everyday)</p>
+              <a class="facility-card__link" href="/facilities/1">See More <i class="ri-arrow-right-s-line"></i></a>
+            </div>
+          </article>
+
+          <!-- Bar -->
+          <article class="facility-card">
+            <div class="facility-card__image">
+              <img src="https://ubhotel.mn/_next/image?url=%2Ffacilities%2Fbar%2F1.jpg&w=1080&q=100" alt="Bar">
+            </div>
+            <div class="facility-card__body">
+              <h3 class="facility-card__title">Bar</h3>
+              <p class="facility-card__desc">
+                Established in 1961, this historic bar has retained its iconic status. Explore a diverse selection of
+                fine wines, spirits, and expertly crafted cocktails.
+              </p>
+              <p class="facility-card__meta-label">Tel</p>
+              <p class="facility-card__meta-value">011-32-0620 · 9988-6868</p>
+              <p class="facility-card__meta-label">Hours of Operation</p>
+              <p class="facility-card__meta-value">4:00 PM – 12:00 AM</p>
+              <a class="facility-card__link" href="/facilities/2">See More <i class="ri-arrow-right-s-line"></i></a>
+            </div>
+          </article>
+
+          <!-- Coffee Shop -->
+          <article class="facility-card">
+            <div class="facility-card__image">
+              <img src="https://ubhotel.mn/_next/image?url=%2Ffacilities%2Fcoffee%2Fcoffee-shop.jpg&w=1080&q=100" alt="Magnolia Coffee Shop">
+            </div>
+            <div class="facility-card__body">
+              <h3 class="facility-card__title">Magnolia Coffee Shop</h3>
+              <p class="facility-card__desc">
+                Welcome to Magnolia Coffee Shop! Enjoy a wide variety of drinks, from expertly brewed coffees and
+                refreshing teas to unique specialty beverages.
+              </p>
+              <p class="facility-card__meta-label">Tel</p>
+              <p class="facility-card__meta-value">011-32-0620 · 9988-6868</p>
+              <p class="facility-card__meta-label">Hours of Operation</p>
+              <p class="facility-card__meta-value">6:30 AM – 9:00 PM</p>
+              <a class="facility-card__link" href="/facilities/3">See More <i class="ri-arrow-right-s-line"></i></a>
+            </div>
+          </article>
+
+        </div><!-- /.carousel__track -->
+      </div><!-- /.carousel -->
+
+      <!-- Dot indicators -->
+      <div class="carousel__dots" id="fac-dots"></div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       EVENTS
+  ══════════════════════════════ -->
+  <section class="events">
+    <div class="container">
+      <h2 class="events__title">Events</h2>
+
+      <div class="events__cards">
+
+        <!-- Wedding -->
+        <div class="event-card">
+          <img class="event-card__bg" src="https://ubhotel.mn/_next/image?url=%2Freserve%2Fevent1.png&w=1920&q=100" alt="Wedding">
+          <div class="event-card__body">
+            <h3 class="event-card__title">Wedding</h3>
+            <p class="event-card__desc">
+              From a private ceremony to a spectacular reception, discover the destination of your dreams
+              and let our experts craft an occasion you'll treasure forever.
+            </p>
+            <p class="event-card__contact">Contact us: <strong>9909 8729</strong></p>
+            <a class="btn-primary" href="/event">See More</a>
+          </div>
+        </div>
+
+        <!-- Meeting -->
+        <div class="event-card">
+          <img class="event-card__bg" src="https://ubhotel.mn/_next/image?url=%2Fphoto%2Fevent1.png&w=1920&q=100" alt="Meeting">
+          <div class="event-card__body">
+            <h3 class="event-card__title">Meeting</h3>
+            <p class="event-card__desc">
+              Achieve more with meetings that are as polished as they are productive. Our experienced team
+              provides impeccable service from start to finish.
+            </p>
+            <p class="event-card__contact">Contact us: <strong>9909 8729</strong></p>
+            <a class="btn-primary" href="/event">See More</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       LOCATION
+  ══════════════════════════════ -->
+  <section class="location">
+    <div class="container">
+      <div class="location__header">
+        <h2 class="location__title">Our Location</h2>
+        <p class="location__address">
+          Ulaanbaatar Hotel, B.Altangerel Street-7, 8th Subdistrict,<br>
+          Sukhbaatar District, Ulaanbaatar, Mongolia
+        </p>
+      </div>
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=106.9150,47.9150,106.9250,47.9220&layer=mapnik&marker=47.9185,106.9200"
+          title="Ulaanbaatar Hotel Location"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer class="footer">
+    <img class="footer__bg-img" src="https://ubhotel.mn/_next/image?url=%2Fevent%2Fg10.png&w=1920&q=100" alt="">
+    <div class="footer__overlay"></div>
+
+    <div class="container footer__inner">
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <div class="footer__brand-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="footer__logo">Ulaanbaatar</p>
+        </div>
+
+        <!-- Address -->
+        <div>
+          <h3 class="footer__heading">Address</h3>
+          <p class="footer__text">
+            Ulaanbaatar Hotel, B.Altangerel Street-7,<br>
+            8th Subdistrict, Sukhbaatar District,<br>
+            Ulaanbaatar, Mongolia
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="footer__heading">Contact</h3>
+          <p class="footer__text">011-32-0620, 9988-6868</p>
+          <p class="footer__text">info@ubhotel.mn</p>
+        </div>
+
+        <!-- Links -->
+        <div class="footer__links">
+          <a class="footer__link" href="/about">About Us</a>
+          <a class="footer__link" href="/newsLetter">Newsletter</a>
+        </div>
+
+      </div>
+
+      <hr class="footer__divider">
+
+      <div class="footer__bottom">
+        <div class="footer__socials">
+          <a class="footer__social" href="https://www.facebook.com/UlaanbaatarHotel" target="_blank" aria-label="Facebook">
+            <img src="https://ubhotel.mn/_next/image?url=%2Ficon%2Fface.png&w=48&q=75" alt="Facebook">
+          </a>
+          <a class="footer__social" href="https://www.instagram.com/ulaanbaatarhotel" target="_blank" aria-label="Instagram">
+            <img src="https://ubhotel.mn/_next/image?url=%2Ficon%2Finsta.png&w=48&q=75" alt="Instagram">
+          </a>
+        </div>
+        <p class="footer__copy">© Ulaanbaatar Hotel 2026</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════ -->
+  <script>
+  (() => {
+    /* ── 1. HERO SCROLL REVEAL ─────────────────────────────── */
+    const heroSection = document.getElementById('hero-section');
+    const heroPanel   = document.getElementById('hero-panel');
+    const header      = document.getElementById('site-header');
+
+    function onScroll() {
+      const scrollY   = window.scrollY;
+      const vh        = window.innerHeight;
+      // Panel slides up from 100% (off-screen bottom) to 55% (half screen)
+      // over the first 60% of the hero scroll distance
+      const scrollDist = heroSection.offsetHeight - vh;
+      const progress   = Math.min(scrollY / (scrollDist * 0.6), 1);
+
+      // translateY: starts at 100% (fully hidden below), ends at 0% (fully visible)
+      // We stop at 55vh height by controlling translateY
+      const translateY = 100 - progress * 100;
+      heroPanel.style.transform = `translateY(${translateY}%)`;
+      heroPanel.style.opacity   = progress > 0.02 ? 1 : 0;
+
+      // Header scrolled state
+      if (scrollY > vh * 0.7) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // init
+
+
+    /* ── 2. GENERIC CAROUSEL FACTORY ──────────────────────── */
+    function initCarousel({ trackId, prevId, nextId, dotsId, visibleCount }) {
+      const track  = document.getElementById(trackId);
+      const prev   = document.getElementById(prevId);
+      const next   = document.getElementById(nextId);
+      const dotsEl = document.getElementById(dotsId);
+      const items  = Array.from(track.children);
+      const total  = items.length;
+      let current  = 0;
+
+      // Build dots
+      items.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel__dot';
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(dot);
+      });
+      const dots = Array.from(dotsEl.children);
+
+      function getVisible() {
+        // Responsive: count how many fit
+        const vw = window.innerWidth;
+        if (typeof visibleCount === 'number') return visibleCount;
+        if (vw >= 1024) return 3;
+        if (vw >= 640)  return 2;
+        return 1;
+      }
+
+      function goTo(idx) {
+        const vis   = getVisible();
+        const max   = Math.max(0, total - vis);
+        current = Math.max(0, Math.min(idx, max));
+
+        // Calculate % offset per item
+        const pct = (100 / vis) * current;
+        track.style.transform = `translateX(-${pct}%)`;
+
+        // Update dots: highlight group
+        dots.forEach((d, i) => {
+          d.classList.toggle('active',
+            i >= current && i < current + vis
+          );
+        });
+      }
+
+      prev.addEventListener('click', () => goTo(current - 1));
+      next.addEventListener('click', () => goTo(current + 1));
+      window.addEventListener('resize', () => goTo(current));
+
+      goTo(0);
+    }
+
+    // Rooms carousel — 3 visible on desktop
+    initCarousel({
+      trackId:      'rooms-track',
+      prevId:       'rooms-prev',
+      nextId:       'rooms-next',
+      dotsId:       'rooms-dots',
+      visibleCount: null  // auto-responsive
+    });
+
+    // Facilities carousel — 1 at a time (full width card)
+    initCarousel({
+      trackId:      'fac-track',
+      prevId:       'fac-prev',
+      nextId:       'fac-next',
+      dotsId:       'fac-dots',
+      visibleCount: 1
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
