@@ -7,12 +7,12 @@
   <!-- ════════════════════════════════════════
        SEO: Unique, keyword-rich title (50–60 chars)
   ════════════════════════════════════════ -->
-  <title>Ulaanbaatar Hotel — 5-Star Luxury Hotel in Ulaanbaatar, Mongolia</title>
+  <title>Ulaanbaatar Hotel — Luxury 5-Star Hotel in Mongolia</title>
 
   <!-- ════════════════════════════════════════
        SEO: Meta description (150–160 chars)
   ════════════════════════════════════════ -->
-  <meta name="description" content="Experience Mongolia's finest luxury hotel since 1961. Ulaanbaatar Hotel offers elegant rooms, world-class dining, fitness center, and exceptional event spaces in the heart of Ulaanbaatar.">
+  <meta name="description" content="Mongolia's premier 5-star hotel since 1961. Elegant rooms, award-winning dining, fitness center &amp; event spaces in central Ulaanbaatar. Book direct.">
 
   <!-- ════════════════════════════════════════
        SEO: Keywords, robots, canonical
@@ -87,6 +87,81 @@
     ]
   }
   </script>
+
+  <!-- SEO: WebSite schema + Sitelinks Searchbox -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ulaanbaatar Hotel",
+    "url": "https://ubhotel.mn",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://ubhotel.mn/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- SEO: BreadcrumbList schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://ubhotel.mn/"},
+      {"@type":"ListItem","position":2,"name":"Rooms & Suites","item":"https://ubhotel.mn/room-suits"},
+      {"@type":"ListItem","position":3,"name":"Facilities","item":"https://ubhotel.mn/facilities"},
+      {"@type":"ListItem","position":4,"name":"Events & Weddings","item":"https://ubhotel.mn/event"},
+      {"@type":"ListItem","position":5,"name":"Dining","item":"https://ubhotel.mn/dining"},
+      {"@type":"ListItem","position":6,"name":"Contact","item":"https://ubhotel.mn/contact"}
+    ]
+  }
+  </script>
+
+  <!-- ════════════════════════════════════════
+       SERVER CONFIG — .htaccess (root хавтаст тавих)
+       ════════════════════════════════════════
+       Options -Indexes
+       RewriteEngine On
+       RewriteCond %{HTTPS} off
+       RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+       RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+       RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+       <IfModule mod_deflate.c>
+         AddOutputFilterByType DEFLATE text/html text/css text/javascript
+       </IfModule>
+       <IfModule mod_expires.c>
+         ExpiresActive On
+         ExpiresByType text/html "access plus 1 hour"
+         ExpiresByType text/css "access plus 1 month"
+         ExpiresByType image/jpeg "access plus 1 year"
+       </IfModule>
+       <IfModule mod_headers.c>
+         Header always set X-Content-Type-Options "nosniff"
+         Header always set X-Frame-Options "SAMEORIGIN"
+       </IfModule>
+  ════════════════════════════════════════
+       robots.txt — https://ubhotel.mn/robots.txt
+       ════════════════════════════════════════
+       User-agent: *
+       Allow: /
+       Disallow: /api/
+       Disallow: /_next/
+       Disallow: /admin/
+       Sitemap: https://ubhotel.mn/sitemap.xml
+  ════════════════════════════════════════ -->
+
+  <!-- SEO: hreflang — MN/EN хэлний хувилбар -->
+  <link rel="alternate" hreflang="mn" href="https://ubhotel.mn/">
+  <link rel="alternate" hreflang="en" href="https://ubhotel.mn/en/">
+  <link rel="alternate" hreflang="x-default" href="https://ubhotel.mn/">
+
+  <!-- Performance: Preload hero image -->
+  <link rel="preload" as="image" href="https://ubhotel.mn/_next/image?url=%2Fbackground%2Fbackground4.png&w=1920&q=100">
+
+  <!-- SEO: Sitemap reference for crawlers -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -188,6 +263,7 @@ button { font-family: inherit; cursor: pointer; }
   color: white;
   letter-spacing: 3px;
 }
+.header__stars span { aria-hidden: "true"; }
 
 /* logo */
 .header__logo-wrap { text-align: center; }
@@ -1068,7 +1144,7 @@ button { font-family: inherit; cursor: pointer; }
     <div class="hero__sticky">
 
       <!-- SEO: H1 — page's main heading, unique and descriptive -->
-      <h1 class="sr-only">Ulaanbaatar Hotel — Mongolia's Premier Five-Star Luxury Hotel Since 1961</h1>
+      <h1 class="sr-only">Ulaanbaatar Hotel — Luxury 5-Star Hotel in Mongolia Since 1961</h1>
 
       <div class="hero__photo" role="img" aria-label="Ulaanbaatar Hotel exterior view, Sukhbaatar District, Mongolia"></div>
 
@@ -1215,7 +1291,7 @@ button { font-family: inherit; cursor: pointer; }
                 <li>1–2 Guests</li><li>Twin Bed</li><li>15m²</li>
               </ul>
             </div>
-            <div class="room-card__cta"><a href="/room-suits/1" aria-label="View Comfort Single room details">View Details</a></div>
+            <div class="room-card__cta"><a href="/room-suits/1" aria-label="View Comfort Single room details">Comfort Single →</a></div>
           </article>
 
           <article class="room-card">
@@ -1229,7 +1305,7 @@ button { font-family: inherit; cursor: pointer; }
                 <li>1–2 Guests</li><li>2 Queen Beds</li><li>18m²</li>
               </ul>
             </div>
-            <div class="room-card__cta"><a href="/room-suits/2" aria-label="View Standard Double room details">View Details</a></div>
+            <div class="room-card__cta"><a href="/room-suits/2" aria-label="View Standard Double room details">Standard Double →</a></div>
           </article>
 
           <article class="room-card">
@@ -1243,7 +1319,7 @@ button { font-family: inherit; cursor: pointer; }
                 <li>1–2 Guests</li><li>Twin Bed</li><li>24m²</li>
               </ul>
             </div>
-            <div class="room-card__cta"><a href="/room-suits/3" aria-label="View Superior Twin room details">View Details</a></div>
+            <div class="room-card__cta"><a href="/room-suits/3" aria-label="View Superior Twin room details">Superior Twin →</a></div>
           </article>
 
           <article class="room-card">
@@ -1257,7 +1333,7 @@ button { font-family: inherit; cursor: pointer; }
                 <li>1–2 Guests</li><li>King Bed</li><li>24m²</li>
               </ul>
             </div>
-            <div class="room-card__cta"><a href="/room-suits/4" aria-label="View Superior King room details">View Details</a></div>
+            <div class="room-card__cta"><a href="/room-suits/4" aria-label="View Superior King room details">Superior King →</a></div>
           </article>
 
           <article class="room-card">
@@ -1271,7 +1347,7 @@ button { font-family: inherit; cursor: pointer; }
                 <li>1–2 Guests</li><li>Twin Bed</li><li>32m²</li>
               </ul>
             </div>
-            <div class="room-card__cta"><a href="/room-suits/5" aria-label="View Deluxe Twin room details">View Details</a></div>
+            <div class="room-card__cta"><a href="/room-suits/5" aria-label="View Deluxe Twin room details">Deluxe Twin →</a></div>
           </article>
 
           <article class="room-card">
@@ -1285,7 +1361,7 @@ button { font-family: inherit; cursor: pointer; }
                 <li>1–2 Guests</li><li>King Bed</li><li>32m²</li>
               </ul>
             </div>
-            <div class="room-card__cta"><a href="/room-suits/6" aria-label="View Deluxe King room details">View Details</a></div>
+            <div class="room-card__cta"><a href="/room-suits/6" aria-label="View Deluxe King room details">Deluxe King →</a></div>
           </article>
 
           <article class="room-card">
@@ -1299,7 +1375,7 @@ button { font-family: inherit; cursor: pointer; }
                 <li>1–3 Guests</li><li>Queen Bed</li><li>50m²</li>
               </ul>
             </div>
-            <div class="room-card__cta"><a href="/room-suits/7" aria-label="View Deluxe Suite details">View Details</a></div>
+            <div class="room-card__cta"><a href="/room-suits/7" aria-label="View Deluxe Suite details">Deluxe Suite →</a></div>
           </article>
 
           <article class="room-card">
@@ -1313,7 +1389,7 @@ button { font-family: inherit; cursor: pointer; }
                 <li>1–4 Guests</li><li>King Bed</li><li>75m²</li>
               </ul>
             </div>
-            <div class="room-card__cta"><a href="/room-suits/8" aria-label="View Executive Suite details">View Details</a></div>
+            <div class="room-card__cta"><a href="/room-suits/8" aria-label="View Executive Suite details">Executive Suite →</a></div>
           </article>
 
         </div>
@@ -1365,7 +1441,7 @@ button { font-family: inherit; cursor: pointer; }
               </p>
               <p class="facility-card__meta-label">Hours of Operation</p>
               <p class="facility-card__meta-value">Monday – Friday: 10:00 AM – 1:00 PM, 2:00 PM – 6:00 PM</p>
-              <a class="facility-card__link" href="/facilities/7" aria-label="Learn more about Arig Anya Japanese restaurant">See More <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
+              <a class="facility-card__link" href="/facilities/7" aria-label="Learn more about Arig Anya Japanese restaurant">Explore Arig Anya <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
             </div>
           </article>
 
@@ -1386,7 +1462,7 @@ button { font-family: inherit; cursor: pointer; }
               <p class="facility-card__meta-value">011-32-0620 · 9988-6868</p>
               <p class="facility-card__meta-label">Hours of Operation</p>
               <p class="facility-card__meta-value">7:00 AM – 10:00 PM (Every Day)</p>
-              <a class="facility-card__link" href="/facilities/1" aria-label="Learn more about the hotel fitness center">See More <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
+              <a class="facility-card__link" href="/facilities/1" aria-label="Learn more about the hotel fitness center">Explore Fitness Center <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
             </div>
           </article>
 
@@ -1407,7 +1483,7 @@ button { font-family: inherit; cursor: pointer; }
               <p class="facility-card__meta-value">011-32-0620 · 9988-6868</p>
               <p class="facility-card__meta-label">Hours of Operation</p>
               <p class="facility-card__meta-value">4:00 PM – 12:00 AM</p>
-              <a class="facility-card__link" href="/facilities/2" aria-label="Learn more about the hotel bar">See More <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
+              <a class="facility-card__link" href="/facilities/2" aria-label="Learn more about the hotel bar">Explore the Bar <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
             </div>
           </article>
 
@@ -1429,7 +1505,7 @@ button { font-family: inherit; cursor: pointer; }
               <p class="facility-card__meta-value">011-32-0620 · 9988-6868</p>
               <p class="facility-card__meta-label">Hours of Operation</p>
               <p class="facility-card__meta-value">6:30 AM – 9:00 PM (Daily)</p>
-              <a class="facility-card__link" href="/facilities/3" aria-label="Learn more about Magnolia Coffee Shop">See More <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
+              <a class="facility-card__link" href="/facilities/3" aria-label="Learn more about Magnolia Coffee Shop">Explore Magnolia <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
             </div>
           </article>
 
@@ -1470,7 +1546,7 @@ button { font-family: inherit; cursor: pointer; }
               and care, making your special day truly extraordinary.
             </p>
             <p class="event-card__contact">Contact our events team: <span class="event-card__phone">9909 8729</span></p>
-            <a class="btn-primary" href="/event" aria-label="Learn more about wedding packages at Ulaanbaatar Hotel">See More</a>
+            <a class="btn-primary" href="/event" aria-label="Learn more about wedding packages at Ulaanbaatar Hotel">Plan Your Wedding</a>
           </div>
         </div>
 
@@ -1488,7 +1564,7 @@ button { font-family: inherit; cursor: pointer; }
               for every type of corporate gathering.
             </p>
             <p class="event-card__contact">Contact our events team: <span class="event-card__phone">9909 8729</span></p>
-            <a class="btn-primary" href="/event" aria-label="Learn more about corporate meeting spaces at Ulaanbaatar Hotel">See More</a>
+            <a class="btn-primary" href="/event" aria-label="Learn more about corporate meeting spaces at Ulaanbaatar Hotel">Book a Meeting Room</a>
           </div>
         </div>
 
@@ -1533,8 +1609,7 @@ button { font-family: inherit; cursor: pointer; }
   <footer class="footer" role="contentinfo">
     <img class="footer__bg-img"
       src="https://ubhotel.mn/_next/image?url=%2Fevent%2Fg10.png&w=1920&q=100"
-      alt=""
-      aria-hidden="true"
+      alt="Ulaanbaatar Hotel event and banquet hall background"
       width="1920" height="600" loading="lazy">
     <div class="footer__overlay"></div>
 
@@ -1564,7 +1639,7 @@ button { font-family: inherit; cursor: pointer; }
             <a href="tel:+97699886868" style="color:inherit;opacity:0.82;">9988-6868</a>
           </p>
           <p class="footer__text">
-            <a href="mailto:info@ubhotel.mn" style="color:inherit;opacity:0.82;">info@ubhotel.mn</a>
+            <a href="mailto:info@ubhotel.mn" style="color:inherit;opacity:0.82;">Send us an email</a>
           </p>
         </div>
 
@@ -1687,6 +1762,221 @@ button { font-family: inherit; cursor: pointer; }
       nextId:       'fac-next',
       dotsId:       'fac-dots',
       visibleCount: 1
+    });
+
+  })();
+
+
+  /* ══════════════════════════════════════════════════════════
+     INLINE FILE GENERATOR
+     .htaccess, robots.txt, sitemap.xml — нэг товшилтоор татаж авах
+  ══════════════════════════════════════════════════════════ */
+  (function() {
+
+    /* ── File contents ─────────────────────────────────────── */
+    const FILES = {
+      '.htaccess': `Options -Indexes
+
+# 1. Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. www -> non-www 301 redirect
+RewriteCond %{HTTP_HOST} ^www\\.(.*)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# 3. Trailing slash normalize
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# 4. GZIP Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# 5. Browser Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html              "access plus 1 hour"
+  ExpiresByType text/css               "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/jpeg             "access plus 1 year"
+  ExpiresByType image/png              "access plus 1 year"
+  ExpiresByType image/webp             "access plus 1 year"
+  ExpiresByType image/svg+xml          "access plus 1 month"
+  ExpiresByType image/x-icon           "access plus 1 year"
+</IfModule>
+
+# 6. Security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>`,
+
+      'robots.txt': `User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+Sitemap: https://ubhotel.mn/sitemap.xml`,
+
+      'sitemap.xml': `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://ubhotel.mn/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ubhotel.mn/room-suits</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ubhotel.mn/room-suits/1</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/room-suits/2</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/room-suits/3</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/room-suits/4</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/room-suits/5</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/room-suits/6</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/room-suits/7</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/room-suits/8</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/dining</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ubhotel.mn/facilities</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ubhotel.mn/facilities/1</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ubhotel.mn/facilities/2</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ubhotel.mn/facilities/3</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ubhotel.mn/facilities/7</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ubhotel.mn/event</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ubhotel.mn/offers</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ubhotel.mn/our-city</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ubhotel.mn/gift</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ubhotel.mn/about</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/contact</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubhotel.mn/newsLetter</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>`
+    };
+
+    /* ── Download helper ───────────────────────────────────── */
+    function downloadFile(name, content) {
+      const blob = new Blob([content], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = name;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    /* ── Panel HTML ────────────────────────────────────────── */
+    const panel = document.createElement('div');
+    panel.id = 'seo-panel';
+    panel.innerHTML = `
+      <style>
+        #seo-panel {
+          position: fixed;
+          bottom: 2rem;
+          right: 2rem;
+          z-index: 9999;
+          font-family: 'Montserrat', sans-serif;
+        }
+        #seo-toggle {
+          width: 52px; height: 52px;
+          border-radius: 50%;
+          background: #A58C63;
+          border: 2px solid #D8BD98;
+          color: #fff;
+          font-size: 1.3rem;
+          cursor: pointer;
+          display: flex; align-items: center; justify-content: center;
+          box-shadow: 0 4px 20px rgba(100,80,46,.35);
+          transition: background .3s;
+        }
+        #seo-toggle:hover { background: #8C6F48; }
+        #seo-box {
+          display: none;
+          position: absolute;
+          bottom: 64px; right: 0;
+          background: #fff;
+          border: 1px solid #EDE0D0;
+          border-radius: 12px;
+          padding: 1.25rem 1.5rem;
+          width: 280px;
+          box-shadow: 0 8px 40px rgba(100,80,46,.18);
+        }
+        #seo-box.open { display: block; }
+        #seo-box h4 {
+          font-size: .72rem;
+          letter-spacing: .12em;
+          text-transform: uppercase;
+          color: #A58C63;
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+        #seo-box p {
+          font-size: .75rem;
+          color: #666;
+          line-height: 1.6;
+          margin-bottom: 1rem;
+        }
+        .seo-btn {
+          display: flex; align-items: center; gap: .6rem;
+          width: 100%;
+          padding: .65rem 1rem;
+          margin-bottom: .5rem;
+          background: #F2F1ED;
+          border: 1px solid #EDE0D0;
+          border-radius: 8px;
+          font-size: .72rem;
+          font-family: 'Montserrat', sans-serif;
+          letter-spacing: .06em;
+          color: #64502E;
+          cursor: pointer;
+          transition: background .2s, border-color .2s;
+          text-align: left;
+        }
+        .seo-btn:hover { background: #EDE0D0; border-color: #C59C66; }
+        .seo-btn span.icon { font-size: 1rem; flex-shrink: 0; }
+        .seo-btn span.label { flex: 1; }
+        .seo-btn span.desc { font-size: .65rem; color: #999; display: block; }
+        .seo-divider { border: none; border-top: 1px solid #EDE0D0; margin: .75rem 0; }
+      </style>
+      <div id="seo-box">
+        <h4>⚙ SEO File Downloads</h4>
+        <p>Эдгээр файлуудыг вэбсайтын <strong>root хавтаст</strong> байршуулна уу.</p>
+        <button class="seo-btn" id="dl-htaccess">
+          <span class="icon">🔧</span>
+          <span class="label">.htaccess <span class="desc">www→non-www 301 redirect</span></span>
+        </button>
+        <button class="seo-btn" id="dl-robots">
+          <span class="icon">🤖</span>
+          <span class="label">robots.txt <span class="desc">Crawler зааварчилгаа</span></span>
+        </button>
+        <button class="seo-btn" id="dl-sitemap">
+          <span class="icon">🗺</span>
+          <span class="label">sitemap.xml <span class="desc">Бүх хуудасны жагсаалт</span></span>
+        </button>
+        <hr class="seo-divider">
+        <button class="seo-btn" id="dl-all">
+          <span class="icon">📦</span>
+          <span class="label"><strong>Бүгдийг татах</strong> <span class="desc">3 файл нэг дор</span></span>
+        </button>
+      </div>
+      <button id="seo-toggle" title="SEO файлууд татах">⚙</button>
+    `;
+    document.body.appendChild(panel);
+
+    const box    = document.getElementById('seo-box');
+    const toggle = document.getElementById('seo-toggle');
+    toggle.addEventListener('click', () => box.classList.toggle('open'));
+
+    document.getElementById('dl-htaccess').addEventListener('click', () =>
+      downloadFile('.htaccess', FILES['.htaccess']));
+    document.getElementById('dl-robots').addEventListener('click', () =>
+      downloadFile('robots.txt', FILES['robots.txt']));
+    document.getElementById('dl-sitemap').addEventListener('click', () =>
+      downloadFile('sitemap.xml', FILES['sitemap.xml']));
+    document.getElementById('dl-all').addEventListener('click', () => {
+      setTimeout(() => downloadFile('.htaccess', FILES['.htaccess']), 0);
+      setTimeout(() => downloadFile('robots.txt', FILES['robots.txt']), 300);
+      setTimeout(() => downloadFile('sitemap.xml', FILES['sitemap.xml']), 600);
     });
 
   })();
