@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ════════════════════════════════════════
+       www → non-www redirect (GitHub Pages compatible)
+       .htaccess ажиллахгүй тул JS-ээр хийнэ
+  ════════════════════════════════════════ -->
+  <script>
+    (function() {
+      var h = window.location.hostname;
+      // www.naomi0706.github.io → naomi0706.github.io
+      if (h.indexOf('www.') === 0) {
+        window.location.replace(
+          window.location.href.replace('://www.', '://')
+        );
+      }
+      // HTTP → HTTPS
+      if (window.location.protocol === 'http:' &&
+          h !== 'localhost' && h !== '127.0.0.1') {
+        window.location.replace(
+          window.location.href.replace('http://', 'https://')
+        );
+      }
+    })();
+  </script>
+
+  <!-- ════════════════════════════════════════
        SEO: Unique, keyword-rich title (50–60 chars)
   ════════════════════════════════════════ -->
   <title>Ulaanbaatar Hotel — Luxury 5-Star Hotel in Mongolia</title>
@@ -19,7 +42,7 @@
   ════════════════════════════════════════ -->
   <meta name="keywords" content="Ulaanbaatar Hotel, luxury hotel Mongolia, 5-star hotel Ulaanbaatar, hotel UB, Улаанбаатар зочид буудал, Mongolia accommodation">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://ubhotel.mn/">
+  <link rel="canonical" href="https://naomi0706.github.io/lab6.github.io/">
 
   <!-- ════════════════════════════════════════
        SEO: Open Graph / Social Media
@@ -27,7 +50,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ulaanbaatar Hotel — 5-Star Luxury in Mongolia">
   <meta property="og:description" content="Mongolia's premier luxury hotel since 1961. Elegant rooms, world-class dining, and exceptional service in the heart of Ulaanbaatar city.">
-  <meta property="og:url" content="https://ubhotel.mn/">
+  <meta property="og:url" content="https://naomi0706.github.io/lab6.github.io/">
   <meta property="og:image" content="https://ubhotel.mn/_next/image?url=%2Fbackground%2Fbackground4.png&w=1200&q=90">
   <meta property="og:locale" content="mn_MN">
   <meta property="og:locale:alternate" content="en_US">
@@ -56,7 +79,7 @@
     "@type": "Hotel",
     "name": "Ulaanbaatar Hotel",
     "description": "Mongolia's premier 5-star luxury hotel since 1961, offering elegant rooms, world-class dining, and exceptional event spaces in the heart of Ulaanbaatar.",
-    "url": "https://ubhotel.mn",
+    "url": "https://naomi0706.github.io/lab6.github.io",
     "telephone": "+976-11-320620",
     "email": "info@ubhotel.mn",
     "starRating": {
@@ -94,10 +117,10 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Ulaanbaatar Hotel",
-    "url": "https://ubhotel.mn",
+    "url": "https://naomi0706.github.io/lab6.github.io",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://ubhotel.mn/search?q={search_term_string}",
+      "target": "https://naomi0706.github.io/lab6.github.io/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
@@ -109,12 +132,12 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://ubhotel.mn/"},
-      {"@type":"ListItem","position":2,"name":"Rooms & Suites","item":"https://ubhotel.mn/room-suits"},
-      {"@type":"ListItem","position":3,"name":"Facilities","item":"https://ubhotel.mn/facilities"},
-      {"@type":"ListItem","position":4,"name":"Events & Weddings","item":"https://ubhotel.mn/event"},
-      {"@type":"ListItem","position":5,"name":"Dining","item":"https://ubhotel.mn/dining"},
-      {"@type":"ListItem","position":6,"name":"Contact","item":"https://ubhotel.mn/contact"}
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://naomi0706.github.io/lab6.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Rooms & Suites","item":"https://naomi0706.github.io/lab6.github.io/room-suits"},
+      {"@type":"ListItem","position":3,"name":"Facilities","item":"https://naomi0706.github.io/lab6.github.io/facilities"},
+      {"@type":"ListItem","position":4,"name":"Events & Weddings","item":"https://naomi0706.github.io/lab6.github.io/event"},
+      {"@type":"ListItem","position":5,"name":"Dining","item":"https://naomi0706.github.io/lab6.github.io/dining"},
+      {"@type":"ListItem","position":6,"name":"Contact","item":"https://naomi0706.github.io/lab6.github.io/contact"}
     ]
   }
   </script>
@@ -142,20 +165,20 @@
          Header always set X-Frame-Options "SAMEORIGIN"
        </IfModule>
   ════════════════════════════════════════
-       robots.txt — https://ubhotel.mn/robots.txt
+       robots.txt — https://naomi0706.github.io/lab6.github.io/robots.txt
        ════════════════════════════════════════
        User-agent: *
        Allow: /
        Disallow: /api/
        Disallow: /_next/
        Disallow: /admin/
-       Sitemap: https://ubhotel.mn/sitemap.xml
+       Sitemap: https://naomi0706.github.io/lab6.github.io/sitemap.xml
   ════════════════════════════════════════ -->
 
   <!-- SEO: hreflang — MN/EN хэлний хувилбар -->
-  <link rel="alternate" hreflang="mn" href="https://ubhotel.mn/">
-  <link rel="alternate" hreflang="en" href="https://ubhotel.mn/en/">
-  <link rel="alternate" hreflang="x-default" href="https://ubhotel.mn/">
+  <link rel="alternate" hreflang="mn" href="https://naomi0706.github.io/lab6.github.io/">
+  <link rel="alternate" hreflang="en" href="https://naomi0706.github.io/lab6.github.io/en/">
+  <link rel="alternate" hreflang="x-default" href="https://naomi0706.github.io/lab6.github.io/">
 
   <!-- Performance: Preload hero image -->
   <link rel="preload" as="image" href="https://ubhotel.mn/_next/image?url=%2Fbackground%2Fbackground4.png&w=1920&q=100">
@@ -1824,34 +1847,34 @@ Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
 
-Sitemap: https://ubhotel.mn/sitemap.xml`,
+Sitemap: https://naomi0706.github.io/lab6.github.io/sitemap.xml`,
 
       'sitemap.xml': `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://ubhotel.mn/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://ubhotel.mn/room-suits</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ubhotel.mn/room-suits/1</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/room-suits/2</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/room-suits/3</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/room-suits/4</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/room-suits/5</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/room-suits/6</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/room-suits/7</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/room-suits/8</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/dining</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ubhotel.mn/facilities</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ubhotel.mn/facilities/1</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ubhotel.mn/facilities/2</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ubhotel.mn/facilities/3</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ubhotel.mn/facilities/7</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ubhotel.mn/event</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ubhotel.mn/offers</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ubhotel.mn/our-city</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ubhotel.mn/gift</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ubhotel.mn/about</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/contact</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ubhotel.mn/newsLetter</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits/1</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits/2</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits/3</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits/4</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits/5</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits/6</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits/7</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits/8</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/dining</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/facilities</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/facilities/1</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/facilities/2</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/facilities/3</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/facilities/7</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/event</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/offers</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/our-city</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/gift</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/about</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/contact</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/newsLetter</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>`
     };
 
@@ -1980,6 +2003,84 @@ Sitemap: https://ubhotel.mn/sitemap.xml`,
     });
 
   })();
+
+
+  /* ══════════════════════════════════════════════════════════
+     SERVICE WORKER — robots.txt + sitemap.xml + 404 redirect
+     GitHub Pages-д index.html ганцхан файл байхад
+     /robots.txt болон /sitemap.xml URL-уудыг зөв буцаана
+  ══════════════════════════════════════════════════════════ */
+  (function() {
+    if (!('serviceWorker' in navigator)) return;
+
+    const BASE = '/lab6.github.io';
+
+    const ROBOTS = `User-agent: *\nAllow: /\nDisallow: /404.html\nSitemap: https://naomi0706.github.io/lab6.github.io/sitemap.xml`;
+
+    const SITEMAP = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://naomi0706.github.io/lab6.github.io/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/room-suits</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/facilities</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/dining</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/event</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/offers</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/about</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/contact</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/our-city</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://naomi0706.github.io/lab6.github.io/gift</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>`;
+
+    // Service Worker код — blob URL-аар register хийнэ
+    const swCode = `
+const BASE = '${BASE}';
+const ROBOTS_URL  = BASE + '/robots.txt';
+const SITEMAP_URL = BASE + '/sitemap.xml';
+
+const ROBOTS_BODY = ${JSON.stringify(ROBOTS)};
+const SITEMAP_BODY = ${JSON.stringify(SITEMAP)};
+
+self.addEventListener('install', e => self.skipWaiting());
+self.addEventListener('activate', e => e.waitUntil(clients.claim()));
+
+self.addEventListener('fetch', function(event) {
+  var url = new URL(event.request.url);
+  var path = url.pathname;
+
+  if (path === ROBOTS_URL || path === '/robots.txt') {
+    event.respondWith(new Response(ROBOTS_BODY, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'public, max-age=86400'
+      }
+    }));
+    return;
+  }
+
+  if (path === SITEMAP_URL || path === '/sitemap.xml') {
+    event.respondWith(new Response(SITEMAP_BODY, {
+      headers: {
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, max-age=86400'
+      }
+    }));
+    return;
+  }
+});
+`;
+
+    const blob = new Blob([swCode], { type: 'application/javascript' });
+    const swUrl = URL.createObjectURL(blob);
+
+    navigator.serviceWorker.register(swUrl, { scope: BASE + '/' })
+      .then(function(reg) {
+        console.log('[SW] robots.txt + sitemap.xml registered ✓', reg.scope);
+      })
+      .catch(function(err) {
+        console.warn('[SW] Registration failed:', err);
+      });
+  })();
+
   </script>
 
 </body>
